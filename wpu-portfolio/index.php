@@ -81,9 +81,9 @@ foreach ($result['data'] as $photo) {
     <div class="jumbotron" id="home">
       <div class="container">
         <div class="text-center">
-          <img src="img/profile1.png" class="rounded-circle img-thumbnail">
+          <img src="img/profil3.jpg" class="rounded-circle img-thumbnail">
           <h1 class="display-4">Nayla Amanda Pertiwi</h1>
-          <h3 class="lead">Lecturer | Programmer | Youtuber</h3>
+          <h3 class="lead">Student | Influencer | Businesswoman</h3>
         </div>
       </div>
     </div>
@@ -99,10 +99,10 @@ foreach ($result['data'] as $photo) {
         </div>
         <div class="row justify-content-center">
           <div class="col-md-5">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, molestiae sunt doloribus error ullam expedita cumque blanditiis quas vero, qui, consectetur modi possimus. Consequuntur optio ad quae possimus, debitis earum.</p>
+            <p>Saya adalah Nayla Amanda Pertiwi, seorang mahasiswa jurusan Sistem Informasi yang memiliki ketertarikan besar pada teknologi dan pengembangan digital. Di bangku kuliah, saya aktif mengikuti berbagai kegiatan akademik dan berusaha mengasah keterampilan di bidang analisis sistem, pemrograman, serta manajemen data. Saya percaya bahwa dunia digital memiliki potensi luar biasa untuk masa depan, dan itulah yang mendorong saya untuk terus belajar dan berkembang di bidang ini.</p>
           </div>
           <div class="col-md-5">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, molestiae sunt doloribus error ullam expedita cumque blanditiis quas vero, qui, consectetur modi possimus. Consequuntur optio ad quae possimus, debitis earum.</p>
+            <p>Selain sebagai mahasiswa, saya juga dikenal sebagai seorang Tiktokers dan pebisnis muda. Saya memanfaatkan platform media sosial untuk berbagi konten inspiratif, kreatif, dan membangun personal branding. Di sisi lain, saya juga menjalankan usaha sendiri, yang menantang saya untuk berpikir strategis, inovatif, dan bertanggung jawab. Bagi saya, menjadi seorang konten kreator sekaligus pebisnis bukan hanya tentang popularitas atau keuntungan, tetapi juga tentang memberikan nilai dan dampak positif bagi banyak orang</p>
           </div>
         </div>
       </div>
