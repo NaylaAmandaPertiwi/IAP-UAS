@@ -109,40 +109,43 @@ foreach ($result['data'] as $photo) {
     </section>
 
 
-<!-- Youtube dan Instagram -->
 <section class="social bg-light" id="social">
   <div class="container">
+    
+    <!-- Judul -->
     <div class="row pt-4 mb-4">
       <div class="col text-center">
         <h2>Social Media</h2>
       </div>
     </div>
 
-    <div class="row justify-content-start">
-      <div class="col-md-5">
-        <div class="row align-items-center">
-          <div class="col-md-4 text-center ">
-            <img src="<?= $youtubeProfilePic; ?>"  
-            class="rounded-circle img-thumbnail"
-            style="width: 150px; height: 130px; object-fit: cover;">
+    <!-- Konten Utama: YouTube dan Instagram -->
+    <div class="row justify-content-center">
+      
+      <!-- YouTube -->
+      <div class="col-md-5 mb-4">
+        <div class="row mb-3">
+          <div class="col-md-4 text-center">
+            <img src="<?= $youtubeProfilePic; ?>" width="100" class="rounded-circle img-thumbnail" alt="YouTube Profile Picture">
           </div>
-          <div class="col-md-8">
+          <div class="col-md-8 d-flex flex-column justify-content-center">
             <h5><?= $channelName; ?></h5>
-            <p><?= $subscriber; ?> Subscriber.</p>
-            <div class="g-ytsubscribe" data-channelid="UC8GvIZcEZk1FkFn06X2SKGQ" data-layout="default" data-count="default"></div>
+            <p><?= $subscriber; ?> Subscribers</p>
+            <div class="g-ytsubscribe" 
+                 data-channelid="UCpBSzHBGmk49b4IoCtoLdqw" 
+                 data-layout="default" 
+                 data-count="default"></div>
           </div>
         </div>
-
-        <div class="row mt-3">
-          <div class="col">
-            <div class="ratio ratio-16x9">
-              <iframe src="https://www.youtube.com/embed/<?= $latestVideoId; ?>?rel=0" allowfullscreen></iframe>
-            </div>
-          </div>
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" 
+                  src="https://www.youtube.com/embed/<?= $latestVideoId ?>?rel=0" 
+                  allowfullscreen></iframe>
         </div>
       </div>
 
-    <div class="col-md-5 mb-4">
+      <!-- Instagram -->
+      <div class="col-md-5 mb-4">
         <div class="row mb-3">
           <div class="col-md-4 text-center">
             <img src="<?= $profilePictureIG; ?>" width="100" class="rounded-circle img-thumbnail" alt="Instagram Profile Picture">
@@ -153,28 +156,20 @@ foreach ($result['data'] as $photo) {
           </div>
         </div>
         <div class="row mt-3 pb-3">
-          <div class="col d-flex flex-wrap gap-2">
-            <?php foreach ($photos as $photo) : ?>
-              <div class="ig-thumbnail">
-                <img src="<?= $photo; ?>" class="img-fluid" alt="Instagram Photo">
-              </div>
-            <?php endforeach; ?>
-          </div>
-        </div>
-      </div>
-
-      <div class="row mt-3 pb-3">
-        <div class="row">
-          <div class="col">
-            <div class="ig-thumbnil">
-              <img src="img/thumbs/1.png">
+        <div class="col d-flex flex-wrap gap-2">
+          <?php foreach ($photos as $photo) : ?>
+            <div class="ig-thumbnail" style="width: 100px; height: 100px; overflow: hidden; border-radius: 10px;">
+              <img src="<?= $photo; ?>" class="img-fluid" alt="Instagram Photo" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-          </div>
+          <?php endforeach; ?>
         </div>
       </div>
+
+      </div>
+
     </div>
   </div>
-</selection>
+</section>
 
 
 
