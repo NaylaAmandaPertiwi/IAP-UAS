@@ -131,10 +131,7 @@ foreach ($result['data'] as $photo) {
           <div class="col-md-8 d-flex flex-column justify-content-center">
             <h5><?= $channelName; ?></h5>
             <p><?= $subscriber; ?> Subscribers</p>
-            <div class="g-ytsubscribe" 
-                 data-channelid="UCpBSzHBGmk49b4IoCtoLdqw" 
-                 data-layout="default" 
-                 data-count="default"></div>
+            <div class="g-ytsubscribe" data-channelid="UC8GvIZcEZk1FkFn06X2SKGQ" data-layout="default" data-count="default"></div>
           </div>
         </div>
         <div class="embed-responsive embed-responsive-16by9">
@@ -256,15 +253,15 @@ foreach ($result['data'] as $photo) {
             <div class="card bg-primary text-white mb-4 text-center">
               <div class="card-body">
                 <h5 class="card-title">Contact Me</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">I am an enthusiastic Information Systems student, a creative TikTok content creator, and an ambitious young businesswoman striving to make an impact through digital innovation and entrepreneurship.</p>
               </div>
             </div>
             
             <ul class="list-group mb-4">
               <li class="list-group-item"><h3>Location</h3></li>
               <li class="list-group-item">My Office</li>
-              <li class="list-group-item">Jl. Setiabudhi No. 193, Bandung</li>
-              <li class="list-group-item">West Java, Indonesia</li>
+              <li class="list-group-item">Jl. Balai Gadang No. 9, Padang</li>
+              <li class="list-group-item">West Sumatra, Indonesia</li>
             </ul>
           </div>
 
@@ -321,5 +318,7 @@ foreach ($result['data'] as $photo) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <script src="https://apis.google.com/js/platform.js"></script>
+     
+    
   </body>
 </html>
