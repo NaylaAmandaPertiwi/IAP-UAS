@@ -81,7 +81,8 @@ foreach ($result['data'] as $photo) {
     <div class="jumbotron" id="home">
       <div class="container">
         <div class="text-center">
-          <img src="img/profil3.jpg" class="rounded-circle img-thumbnail">
+          <img src="img/profil3.jpg" class="rounded-circle img-thumbnail" style="width: 350px; height: 350px; object-fit: cover;">
+
           <h1 class="display-4">Nayla Amanda Pertiwi</h1>
           <h3 class="lead">Student | Influencer | Businesswoman</h3>
         </div>
