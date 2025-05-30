@@ -1,3 +1,30 @@
+<?php
+function get_CURL ($url) 
+{
+  $curl = curl_init();
+  curl_setopt($curl, CURLOPT_URL, $url);
+  curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+  $result = curl_exec($curl);
+  curl_close($curl);
+  
+  return json_decode($result, true);  
+}
+
+$result = get_CURL('https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=UC8GvIZcEZk1FkFn06X2SKGQ&key=AIzaSyCNGjBi5BxUlAbVaR5H4F27CQrUIjwfaj8');
+
+$youtubeProfilePic = $result ['items'] [0]  ['snippet'] ['thumbnails'] ['medium'] ['url'];
+$channelName = $result ['items'] [0]  ['snippet'] ['title'];
+$subscriber = $result ['items'] [0]  ['statistics'] ['subscriberCount'];
+
+//latest video
+$urlLatestVideo = 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyCNGjBi5BxUlAbVaR5H4F27CQrUIjwfaj8&channelId=UC8GvIZcEZk1FkFn06X2SKGQ&maxResults=1&order=date&part=snippet';
+$result = get_CURL($urlLatestVideo);
+
+$latestVideoId = $result['items'][0]['id']['videoId']; 
+
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -17,7 +44,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#home">Sandhika Galih</a>
+        <a class="navbar-brand" href="#home">Nayla Amanda Pertiwi</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -42,7 +69,7 @@
       <div class="container">
         <div class="text-center">
           <img src="img/profile1.png" class="rounded-circle img-thumbnail">
-          <h1 class="display-4">Sandhika Galih</h1>
+          <h1 class="display-4">Nayla Amanda Pertiwi</h1>
           <h3 class="lead">Lecturer | Programmer | Youtuber</h3>
         </div>
       </div>
@@ -70,20 +97,67 @@
 
 
 <!-- Youtube dan Instagram -->
- <section class="social" id="social">
+<section class="social bg-light" id="social">
   <div class="container">
-    <class="row">
-      <div class="colom">
-        <h2>Sicial Media</h2>
+    <div class="row pt-4 mb-4">
+      <div class="col text-center">
+        <h2>Social Media</h2>
+      </div>
+    </div>
+
+    <div class="row justify-content-start">
+      <div class="col-md-5">
+        <div class="row align-items-center">
+          <div class="col-md-4 text-center ">
+            <img src="<?= $youtubeProfilePic; ?>"  
+            class="rounded-circle img-thumbnail"
+            style="width: 150px; height: 130px; object-fit: cover;">
+          </div>
+          <div class="col-md-8">
+            <h5><?= $channelName; ?></h5>
+            <p><?= $subscriber; ?> Subscriber.</p>
+            <div class="g-ytsubscribe" data-channelid="UC8GvIZcEZk1FkFn06X2SKGQ" data-layout="default" data-count="default"></div>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col">
+            <div class="ratio ratio-16x9">
+              <iframe src="https://www.youtube.com/embed/<?= $latestVideoId; ?>?rel=0" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="row align-items-center">
+          <div class="col-md-4 text-center">
+            <img src="img/thumbs/Profile Ig.jpg"  
+            class="rounded-circle img-thumbnail"
+            style="width: 150px; height: 130px; object-fit: cover;">
+          </div>
+          <div class="col-md-8">
+            <h5>@wgn.Nayla</h5>
+            <p>7000 Followers.</p>
+          </div>
+        </div>
+
+      <div class="row mt-3 pb-3">
+        <div class="row">
+          <div class="col">
+            <div class="ig-thumbnil">
+              <img src="img/thumbs/1.png">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</section>
+</selection>
 
 
 
     <!-- Portfolio -->
-    <section class="portfolio bg-light" id="portfolio">
+    <section class="portfolio" id="portfolio">
       <div class="container">
         <div class="row pt-4 mb-4">
           <div class="col text-center">
@@ -152,7 +226,7 @@
 
 
     <!-- Contact -->
-    <section class="contact" id="contact">
+    <section class="contact bg-light" id="contact">
       <div class="container">
         <div class="row pt-4 mb-4">
           <div class="col text-center">
@@ -229,5 +303,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script src="https://apis.google.com/js/platform.js"></script>
   </body>
 </html>
