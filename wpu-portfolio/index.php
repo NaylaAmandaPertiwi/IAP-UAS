@@ -22,6 +22,19 @@ $result = get_CURL($urlLatestVideo);
 
 $latestVideoId = $result['items'][0]['id']['videoId']; 
 
+$accessToken = 'IGAAZAYO0gZBqZBdBZAE9oNEMyaDRObjQtZAW5qcWFfbDNkWkNDa1c3aENtZAWQySXItZAEd3VTZADbkhHdWdnQXNYVUpQVWxxOTlGOTJYTmQ1eElrSjZAERlRaRVRJUWVYNXFfdGxCVTBnaUNoNXZAYM3Yxa1BXTGhUVHFNWG9ES2NCWUh5SQZDZD';
+
+$result = get_CURL('https://graph.instagram.com/v22.0/me?fields=username,profile_picture_url,followers_count&access_token=IGAAZAYO0gZBqZBdBZAE9oNEMyaDRObjQtZAW5qcWFfbDNkWkNDa1c3aENtZAWQySXItZAEd3VTZADbkhHdWdnQXNYVUpQVWxxOTlGOTJYTmQ1eElrSjZAERlRaRVRJUWVYNXFfdGxCVTBnaUNoNXZAYM3Yxa1BXTGhUVHFNWG9ES2NCWUh5SQZDZD');
+$usernameIG = $result['username'];
+$profilePictureIG = $result['profile_picture_url'];
+$followersIG = $result['followers_count'];
+
+$result = get_CURL('https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,timestamp&access_token=IGAAZAYO0gZBqZBdBZAE9oNEMyaDRObjQtZAW5qcWFfbDNkWkNDa1c3aENtZAWQySXItZAEd3VTZADbkhHdWdnQXNYVUpQVWxxOTlGOTJYTmQ1eElrSjZAERlRaRVRJUWVYNXFfdGxCVTBnaUNoNXZAYM3Yxa1BXTGhUVHFNWG9ES2NCWUh5SQZDZD');
+$photos = [];
+foreach ($result['data'] as $photo) {
+    $photos[] = $photo['media_url'];
+}
+
 
 ?>
 
@@ -128,18 +141,27 @@ $latestVideoId = $result['items'][0]['id']['videoId'];
           </div>
         </div>
       </div>
-      <div class="col-md-5">
-        <div class="row align-items-center">
+
+    <div class="col-md-5 mb-4">
+        <div class="row mb-3">
           <div class="col-md-4 text-center">
-            <img src="img/thumbs/Profile Ig.jpg"  
-            class="rounded-circle img-thumbnail"
-            style="width: 150px; height: 130px; object-fit: cover;">
+            <img src="<?= $profilePictureIG; ?>" width="100" class="rounded-circle img-thumbnail" alt="Instagram Profile Picture">
           </div>
-          <div class="col-md-8">
-            <h5>@wgn.Nayla</h5>
-            <p>7000 Followers.</p>
+          <div class="col-md-8 d-flex flex-column justify-content-center">
+            <h5><?= $usernameIG; ?></h5>
+            <p><?= $followersIG; ?> Followers</p>
           </div>
         </div>
+        <div class="row mt-3 pb-3">
+          <div class="col d-flex flex-wrap gap-2">
+            <?php foreach ($photos as $photo) : ?>
+              <div class="ig-thumbnail">
+                <img src="<?= $photo; ?>" class="img-fluid" alt="Instagram Photo">
+              </div>
+            <?php endforeach; ?>
+          </div>
+        </div>
+      </div>
 
       <div class="row mt-3 pb-3">
         <div class="row">
