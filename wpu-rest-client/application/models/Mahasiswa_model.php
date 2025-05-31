@@ -1,9 +1,19 @@
 <?php 
+use GuzzleHttp\Client;
 
-class Mahasiswa_model extends CI_model {
+class Mahasiswa_model extends CI_model 
+{
     public function getAllMahasiswa()
+    
     {
-        return $this->db->get('mahasiswa')->result_array();
+        $client = new Client();
+
+        $response = $client->request('GET', 'http://localhost/rest-api/wpu-rest-server/api/mahasiswa', [
+            'auth' => ['admin', '1234'],
+            'query' => [
+                'wpu-key' => 'rahasia'
+            ]
+        ]);
     }
 
     public function tambahDataMahasiswa()
