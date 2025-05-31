@@ -11,10 +11,32 @@ class Mahasiswa_model extends CI_model
         $response = $client->request('GET', 'http://localhost/rest-api/wpu-rest-server/api/mahasiswa', [
             'auth' => ['admin', '1234'],
             'query' => [
-                'wpu-key' => 'rahasia'
+                'X-API-KEY' => 'wpu123'
             ]
         ]);
+
+        $result = json_decode($response->getBody()->getContents(), true);
+
+        return $result['data'];
     }
+
+        public function getMahasiswaById($id)
+    {
+        $client = new Client();
+
+        $response = $client->request('GET', 'http://localhost/rest-api/wpu-rest-server/api/mahasiswa', [
+            'auth' => ['admin', '1234'],
+            'query' => [
+                'X-API-KEY' => 'wpu123',
+                'id' => $id
+            ]
+        ]);
+
+        $result = json_decode($response->getBody()->getContents(), true);
+
+        return $result['data'][0];
+    }
+
 
     public function tambahDataMahasiswa()
     {
@@ -30,14 +52,11 @@ class Mahasiswa_model extends CI_model
 
     public function hapusDataMahasiswa($id)
     {
+
         // $this->db->where('id', $id);
         $this->db->delete('mahasiswa', ['id' => $id]);
     }
 
-    public function getMahasiswaById($id)
-    {
-        return $this->db->get_where('mahasiswa', ['id' => $id])->row_array();
-    }
 
     public function ubahDataMahasiswa()
     {
